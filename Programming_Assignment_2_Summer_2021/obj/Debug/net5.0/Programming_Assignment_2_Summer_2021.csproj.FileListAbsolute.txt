@@ -1,0 +1,16 @@
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\bin\Debug\net5.0\Programming_Assignment_2_Summer_2021.exe
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\bin\Debug\net5.0\Programming_Assignment_2_Summer_2021.deps.json
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\bin\Debug\net5.0\Programming_Assignment_2_Summer_2021.runtimeconfig.json
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\bin\Debug\net5.0\Programming_Assignment_2_Summer_2021.runtimeconfig.dev.json
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\bin\Debug\net5.0\Programming_Assignment_2_Summer_2021.dll
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\bin\Debug\net5.0\ref\Programming_Assignment_2_Summer_2021.dll
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\bin\Debug\net5.0\Programming_Assignment_2_Summer_2021.pdb
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\obj\Debug\net5.0\Programming_Assignment_2_Summer_2021.csprojAssemblyReference.cache
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\obj\Debug\net5.0\Programming_Assignment_2_Summer_2021.GeneratedMSBuildEditorConfig.editorconfig
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\obj\Debug\net5.0\Programming_Assignment_2_Summer_2021.AssemblyInfoInputs.cache
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\obj\Debug\net5.0\Programming_Assignment_2_Summer_2021.AssemblyInfo.cs
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\obj\Debug\net5.0\Programming_Assignment_2_Summer_2021.csproj.CoreCompileInputs.cache
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\obj\Debug\net5.0\Programming_Assignment_2_Summer_2021.dll
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\obj\Debug\net5.0\ref\Programming_Assignment_2_Summer_2021.dll
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\obj\Debug\net5.0\Programming_Assignment_2_Summer_2021.pdb
+C:\Arpi\USF\Summer 2021 Semester\DIS\source\repo2\Programming_Assignment_2_Summer_2021\obj\Debug\net5.0\Programming_Assignment_2_Summer_2021.genruntimeconfig.cache

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Programming_Assignment_2_Summer_2021/1.0.0": {
+        "runtime": {
+          "Programming_Assignment_2_Summer_2021.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Programming_Assignment_2_Summer_2021/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

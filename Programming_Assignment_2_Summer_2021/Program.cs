@@ -20,14 +20,14 @@ namespace Programming_Assignment_2_Summer_2021
             int[] nums = { 0, 1, 0, 3, 12 };
             Console.WriteLine("Enter the target number:");
             int target = Int32.Parse(Console.ReadLine());
-            int pos=SearchInsert(nums,target);
+            int pos = SearchInsert(nums, target);
             Console.WriteLine("Insert Position of the target is : {0}", pos);
             Console.WriteLine("");
 
             //Question3
             Console.WriteLine("Question 3");
             int[] ar3 = { 1, 2, 3, 1, 1, 3 };
-            int Lnum=LuckyNumber(ar3);
+            int Lnum = LuckyNumber(ar3);
             if (Lnum == -1)
                 Console.WriteLine("Given Array doesn't have any lucky Integer");
             else
@@ -80,13 +80,13 @@ namespace Programming_Assignment_2_Summer_2021
             Console.WriteLine("Question 9");
             int[] arr9 = { 7, 1, 5, 3, 6, 4 };
             int Ms = MaximumSum(arr9);
-            Console.WriteLine("Maximun Sum contiguous subarray {0}", Ma);   
+            Console.WriteLine("Maximun Sum contiguous subarray {0}", Ma);
             Console.WriteLine();
 
             //Question 10
             Console.WriteLine("Question 10");
             int[] costs = { 10, 15, 20 };
-            int minCost=MinCostToClimb(costs);
+            int minCost = MinCostToClimb(costs);
             Console.WriteLine("Minium cost to climb the top stair {0}", minCost);
             Console.WriteLine();
         }
@@ -108,11 +108,20 @@ namespace Programming_Assignment_2_Summer_2021
         {
             try
             {
-                //write your code here.
+                //Finding the common elements between the two arrays using Intersect method
+                int[] Results = nums1.Intersect(nums2).ToArray();
+                if (Results.Length == 0)
+                    Console.WriteLine("No match found");
+                else
+                {
+                    Console.Write(Results[0]);
+                    for (int i = 1; i < Results.Length; i++)
+                        Console.Write(("," + Results[i].ToString()));
+                }
+                Console.WriteLine();
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -139,10 +148,24 @@ namespace Programming_Assignment_2_Summer_2021
         {
             try
             {
-                //Write your Code here.
-                return -1;
+                int start = 0;
+                int end = nums.Length - 1;
+                while (start <= end)
+                {
+                    int mid = (start + end) / 2;
+                    //If the target is equal to the number currently in scope return its index
+                    if (nums[mid] == target)
+                        return mid;
+                    //If the target is greater than the number currently in scope, change the start variable as mid + 1
+                    else if (nums[mid] < target)
+                        start = mid + 1;
+                    //If the target is less than the number currently in scope, change the start variable as mid - 1
+                    else
+                        end = mid - 1;
+                }
+                return end + 1;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
@@ -163,12 +186,43 @@ namespace Programming_Assignment_2_Summer_2021
         {
             try
             {
-                //write your code here.
-                return -1;
+                IDictionary<int, int> numberNames = new Dictionary<int, int>();
+                List<int> list1 = new List<int>();
+                int max = -1;
+                //Doing the Constraint check
+                if (nums.Length >= 1 && nums.Length <= 500)
+                {
+                    for (int i = 0; i < nums.Length; i++)
+                    {
+                        //Doing the Constraint check
+                        if (nums[i] >= 1 && nums[i] <= 500)
+                        {
+                            //If the number in scope is already present in the dictionary, increment the key by 1
+                            if (numberNames.ContainsKey(nums[i]))
+                                numberNames[nums[i]] += 1;
+                            //If the number in scope is new to the dictionary add the number as a key and 1 as its value
+                            else
+                                numberNames.Add(nums[i], 1);
+                        }
+                        else
+                            throw new Exception();
+                    }
+                    //Iterate over each value in the dictionary to verify if the number is equal to its times of occurence
+                    foreach (int i in numberNames.Keys)
+                    {
+                        if (i == numberNames[i])
+                        {
+                            if (i > max)
+                                max = i;
+                        }
+                    }
+                }
+                else
+                    throw new Exception();
+                return max;
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -180,7 +234,7 @@ namespace Programming_Assignment_2_Summer_2021
         //•	nums[1] = 1
         //•	nums[2 * i] = nums[i]  when 2 <= 2 * i <= n
         //•	nums[2 * i + 1] = nums[i] + nums[i + 1] when 2 <= 2 * i + 1 <= n
-       // Return the maximum integer in the array nums.
+        // Return the maximum integer in the array nums.
 
         //Example 1:
         //Input: n = 7
@@ -197,19 +251,36 @@ namespace Programming_Assignment_2_Summer_2021
         //Hence, nums = [0, 1, 1, 2, 1, 3, 2, 3], and the maximum is 3.
 
         /// </summary>
-        private static int  GenerateNums(int n)
+        private static int GenerateNums(int n)
         {
             try
             {
-                //write your code here.
-                return -1;
+                //Doing constraint check
+                if (n >= 0 && n <= 100)
+                {
+                    int[] nums = new int[n + 1];
+                    nums[0] = 0;
+                    nums[1] = 1;
+                    int nlen = n / 2;
+                    //Computing the values
+                    for (int i = 1; i <= nlen; i++)
+                    {
+                        if ((2 * i) < n + 1)
+                            nums[2 * i] = nums[i];
+                        if (((2 * i) + 1) < n + 1)
+                            nums[(2 * i) + 1] = nums[i] + nums[i + 1];
+                    }
+                    //Checking for the maximum number
+                    int maxnum = nums.Max();
+                    return maxnum;
+                }
+                else
+                    throw new Exception();
             }
             catch (Exception)
             {
-
                 throw;
             }
-
         }
 
         //Question 5
@@ -225,12 +296,25 @@ namespace Programming_Assignment_2_Summer_2021
         {
             try
             {
-                //write your code here.
-                return "";
+                List<string> lst = new List<string>();
+                //Adding the destination to the list
+                foreach (var lststr in paths)
+                {
+                    lst.Add(lststr[1]);
+                }
+                //Checking if the source in the scope is already present in the destination list, If yes, remove that element from the destination list
+                foreach (var path in paths)
+                {
+                    if (lst.Contains(path[0]))
+                    {
+                        lst.Remove(path[0]);
+                    }
+                }
+                //Return the last element of the list
+                return (lst.Last());
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -246,16 +330,40 @@ namespace Programming_Assignment_2_Summer_2021
         //Explanation: The sum of 2 and 7 is 9. Therefore index1 = 1, index2 = 2.
 
         /// </summary>
-        private static void targetSum(int[] nums,int target)
+        private static void targetSum(int[] nums, int target)
         {
             try
             {
-                //write your code here.
+                int left = 0;
+                int right = nums.Length - 1;
+                if (nums.Length >= 2 && nums.Length <= (3 * 104))
+                {
+                    while (left < right)
+                    {
+                        //Doing a constraint check
+                        if (nums[left] >= -1000 && nums[right] >= -1000 && nums[left] <= 1000 && nums[right] <= 1000)
+                        {
+                            //If the computed value is less than the target increment the left value by 1
+                            if ((nums[left] + nums[right]) < target)
+                                left++;
+                            //If the computed value is greater than the target decrement the right value by 1
+                            else if ((nums[left] + nums[right]) > target)
+                                right--;
+                            //If the value is found exit the loop
+                            else if ((nums[left] + nums[right]) == target)
+                                break;
+                        }
+                        else
+                            throw new Exception();
+                    }
+                }
+                else
+                    throw new Exception();
+                Console.WriteLine("[{0},{1}]", left + 1, right + 1);
 
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -285,12 +393,43 @@ namespace Programming_Assignment_2_Summer_2021
         {
             try
             {
-                //write your code here.
+                List<int[]> list = new List<int[]>();
+                List<int[,]> results = new List<int[,]>();
+
+                for (int i = 0; i < items.GetLength(0); i++)
+                {
+                    list.Add(new int[] { items[i, 0], items[i, 1] });
+                }
+                //Sorting the list
+                list.Sort((p, q) => { return (p[0] < q[0]) ? -1 : ((p[0] == q[0]) ? ((p[1] <= q[1]) ? 1 : -1) : 1); });
+                int a = list[0][0];
+                int count = 1;
+                int sum = list[0][1];
+                for (int i = 1; i < list.Count; i++)
+                {
+                    //Checking if the count is less than 5
+                    if (list[i][0] == a && count < 5)
+                    {
+                        sum += list[i][1];
+                        count += 1;
+                    }
+                    else if (list[i][0] != a)
+                    {
+                        results.Add(new int[,] { { a, sum / 5 } });
+
+                        Console.Write("[[" + a + "," + sum / 5 + "]" + ",");
+                        a = list[i][0];
+                        count = 1;
+                        sum = list[i][1];
+                    }
+                }
+                results.Add(new int[,] { { a, sum / 5 } });
+                Console.Write("[" + a + "," + sum / 5 + "]]");
+                Console.WriteLine();
 
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -314,18 +453,52 @@ namespace Programming_Assignment_2_Summer_2021
         //rotate 2 steps to the right: [3,99,-1,-100]
         /// </summary>
 
-        private static void RotateArray(int[] arr,int n)
+        private static void RotateArray(int[] arr, int n)
         {
             try
             {
-                //write your code here.
-           
+
+                int[] temp = new int[arr.Length - n];
+                //Doing constraint check
+                if (arr.Length >= 1 && arr.Length <= 105 && n >= 0 && n <= 105)
+                {
+                    //Taking the first (Length-n) elements and keeping them in temp array
+                    for (int i = 0; i < arr.Length - n; i++)
+                    {
+                        if (arr[i] >= -231 && arr[i] <= 230)
+                            temp[i] = arr[i];
+                        else
+                            throw new Exception();
+                    }
+                    //Taking the last n elements and placing them in the first n values of the array
+                    for (int i = arr.Length - n; i < arr.Length; i++)
+                    {
+                        if (arr[i] >= -231 && arr[i] <= 230)
+                            arr[i + n - arr.Length] = arr[i];
+                        else
+                            throw new Exception();
+                    }
+                    //Placing the temp array back into the array
+                    for (int i = 0; i < arr.Length - n; i++)
+                    {
+                        if (arr[i] >= -231 && arr[i] <= 230)
+                            arr[i + n] = temp[i];
+                        else
+                            throw new Exception();
+                    }
+                    Console.Write("[{0}", arr[0]);
+                    for (int i = 1; i < arr.Length; i++)
+                        Console.Write(",{0}", arr[i]);
+                    Console.Write("]");
+                }
+                else
+                    throw new Exception();
             }
             catch (Exception)
             {
-
                 throw;
             }
+            Console.WriteLine();
         }
 
         //Question 9
@@ -338,8 +511,8 @@ namespace Programming_Assignment_2_Summer_2021
         //Example 2:
         //Input: nums = [1]
         //Output: 1
-       // Example 3:
-       // Input: nums = [5,4,-1,7,8]
+        // Example 3:
+        // Input: nums = [5,4,-1,7,8]
         //Output: 23
         /// </summary>
 
@@ -347,12 +520,31 @@ namespace Programming_Assignment_2_Summer_2021
         {
             try
             {
-                //write your code here.
-                return 0;
+                //Doing the constraint check
+                if (arr.Length >= 1 && arr.Length <= 30000)
+                {
+                    int sum = 0;
+                    int max = 0;
+                    for (int i = 0; i < arr.Length; i++)
+                    {
+                        //Doing the constraint check
+                        if (arr[i] >= -100000 && arr[i] <= 100000)
+                        {
+                            //Add the number in scope to sum and check if it is greater than max.If yes, replace the previous value of max with the sum and complete the loop
+                            sum += arr[i];
+                            if (sum > max)
+                                max = sum;
+                        }
+                        else
+                            throw new Exception();
+                    }
+                    return max;
+                }
+                else
+                    throw new Exception();
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -373,13 +565,26 @@ namespace Programming_Assignment_2_Summer_2021
         {
             try
             {
-                //write your code here.
-                return 0;
-
+                int n = costs.Length;
+                //Doing the constraint check
+                if (n >= 2 && n <= 1000)
+                {
+                    for (int i = 2; i < n; i++)
+                    {
+                        //Doing the constraint check
+                        if (costs[i] >= 0 && costs[i] <= 999)
+                        {
+                            //Computing the minimum of the two costs below the current cost and adding the current cost to it.
+                            costs[i] = Math.Min(costs[i - 1], costs[i - 2]) + costs[i];
+                        }
+                    }
+                }
+                else
+                    throw new Exception();
+                return Math.Min(costs[n - 2], costs[n - 1]);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
